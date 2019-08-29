@@ -1,77 +1,5 @@
-// var telegram= require("telegram-bot-api");
-// var mongojs = require("mongojs");
-// var db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/amritapuri_places?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",["places"]);
-// var api = new telegram({
-//         token: '878345256:AAFIwOyNkR4sSupmWoTM1UY-Zo8hdYlBrLU',
-//         updates: {
-//         	enabled: true
-//     }
-// });
-// var place ={
-// 	ground_floor:{
-// 		acharya_hall:{
-// 			id:"a001",
-// 		},
-// 		shraddha_hall:{
-// 			id:"a002",
-// 		},
-// 		kripa_hall:{
-// 			id:"a003",
-// 		},
-// 	}
-
-// }
-
-// db.places.insert(place,function(err,data)
-// {
-// console.log(data);
-// console.log("success")
-// });
-
-// api.on('message', function(message)
-// {
-//     var message=message.text;
-//     message=message.toLowerCase();
-
-//  if(message[1]==0)
-//  {
-// 	var arr=Object.entries(place.ground_floor);
-// 	for(i=0;i<arr.length;i++)
-// 	{
-// 		var arr2=arr[i];
-
-// 		if(arr2[1].id==message)
-// 		{
-// 			api.sendMessage({chat_id:message.chat.id,text:arr2[0]})
-// 	 		console.log(arr2[0])
-// 		}// if loop
-
-// 	}// for loop
-//  }// if loop
-//  else if(message.length>0)				// only for the ground floor
-//  {
-// 	var m=Object.entries(place.ground_floor);
-// 	 for(i=0;i<m.length;i++)
-// 	{
-// 	 	var m2=m[i];
-// 		if(hello==m2[0])
-// 	 	{
-// 	 		api.sendMessage({chat_id:message.chat.id,text:m2[1].id})
-// 	 		console.log(m2[1].id);
-// 		}
-// 	}
-//  }
-//  else
-//  {
-//  	console.log("sorry i cant get you");
-//  }
-// });
-
-
-
-
 var mongojs = require("mongojs");
-var db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/practice?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",["practicals","practcals"]);
+var db = mongojs(connectionString,[collections]);
 var express=require("express");
 var app = express();
 
@@ -181,7 +109,7 @@ app.get('/orders',function(req,res)
 		status:1
 	}
 
-//var items = [{ phone:req.query.quantity1},{ laptop:req.query.quantity2},{ tv:req.query.quantity3},{ fridge:req.query.quantity4},{ sofa:req.query.quantity5}];
+
 
 var items=	{
 				phone:req.query.quantity1,
@@ -246,16 +174,6 @@ var last = keys.length;
 	})
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(4000,function()
